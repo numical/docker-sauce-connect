@@ -1,5 +1,5 @@
 FROM java:8-jre
-MAINTAINER Joscha Feth <joscha@feth.com>
+LABEL maintainer="Joscha Feth <joscha@feth.com>"
 
 ENV SAUCE_VERSION 4.4.12
 
