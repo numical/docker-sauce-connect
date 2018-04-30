@@ -1,5 +1,5 @@
 FROM java:8-jre
-MAINTAINER Arnau Siches <arnau@ustwo.com>
+MAINTAINER Joscha Feth <joscha@feth.com>
 
 ENV SAUCE_VERSION 4.4.12
 
