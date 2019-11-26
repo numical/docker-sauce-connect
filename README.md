@@ -2,6 +2,8 @@
 
 This docker image runs [Sauce Labs Connect](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy) on Java 8. Docker image can be found [on docker hub](https://hub.docker.com/r/joscha/docker-sauce-connect/).
 
+An example with `docker-compose` on how to use it for integration testing with `webdriverio` can be found [here](https://github.com/joscha/docker-sauce-test/).
+
 
 ## Versions
 
