@@ -10,7 +10,7 @@ RUN ls -la
 RUN mkdir -p /out/bin && \
   cp sc-$SAUCE_VERSION-linux/bin/sc  /out/bin/
 
-FROM debian:jessie-slim
+FROM debian:jessie
 LABEL maintainer="Joscha Feth <joscha@feth.com>"
 COPY --from=build /out /usr/local
 
