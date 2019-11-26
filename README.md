@@ -7,7 +7,8 @@ An example with `docker-compose` on how to use it for integration testing with `
 
 ## Versions
 
-* latest
+* `latest`
+* `4.5`
 
 ## Usage
 
