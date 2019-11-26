@@ -10,9 +10,14 @@ RUN ls -la
 RUN mkdir -p /out/bin && \
   cp sc-$SAUCE_VERSION-linux/bin/sc  /out/bin/
 
-FROM debian:jessie
+FROM debian:jessie-slim
 LABEL maintainer="Joscha Feth <joscha@feth.com>"
 COPY --from=build /out /usr/local
+
+RUN apt-get update -qqy \
+ && apt-get install -qqy \
+      ca-certificates \
+ && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ENTRYPOINT ["sc"]
 
