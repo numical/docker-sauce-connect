@@ -1,20 +1,18 @@
-FROM java:8-jre
-LABEL maintainer="Joscha Feth <joscha@feth.com>"
+FROM alpine:3.10 as build
 
-ENV SAUCE_VERSION 4.4.12
+ENV SAUCE_VERSION 4.5.4
 
-WORKDIR /usr/local/sauce-connect
-
-RUN apt-get update -qqy \
- && apt-get install -qqy \
-      wget \
- && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN apk update && apk add wget && rm -rf /var/cache/apk/*
 
 RUN wget https://saucelabs.com/downloads/sc-$SAUCE_VERSION-linux.tar.gz -O - | tar -xz
 
-WORKDIR /usr/local/sauce-connect/sc-$SAUCE_VERSION-linux
+RUN ls -la
+RUN mkdir -p /out/bin && \
+  cp sc-$SAUCE_VERSION-linux/bin/sc  /out/bin/
 
-ENV PATH /usr/local/sauce-connect/sc-$SAUCE_VERSION-linux/bin:$PATH
+FROM debian:jessie-slim
+LABEL maintainer="Joscha Feth <joscha@feth.com>"
+COPY --from=build /out /usr/local
 
 ENTRYPOINT ["sc"]
 
