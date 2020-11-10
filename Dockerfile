@@ -1,6 +1,6 @@
 FROM alpine:3.10 as build
 
-ENV SAUCE_VERSION 4.5.4
+ENV SAUCE_VERSION 4.6.2
 
 RUN apk update && apk add wget && rm -rf /var/cache/apk/*
 
